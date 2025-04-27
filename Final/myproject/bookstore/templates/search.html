@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title%}
+ค้นหา
+{% endblock%}
+
+{%block content%}
+<h2>ผลการค้นหา</h2>
+<form method="GET" action="{% url 'search' %}">
+    <input type="text" name="q" value="{{ query }}" placeholder="ค้นหาชื่อหนังสือหรือหมวดหมู่">
+    <button type="submit">ค้นหาหนังสือ</button>
+</form>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">ชื่อหนังสือ</th>
+            <th scope="col">หมวดหมู่</th>
+            <th scope="col">สถานะ</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for book in books %}
+            <tr>
+                <td>{{ book.name }}</td>
+                <td>{{ book.category }}</td>
+                <td>{{ book.status }}</td>
+            </tr>
+        {% empty %}
+            <tr>
+                <td colspan="3" class="text-center">ไม่พบข้อมูลหนังสือ</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{%endblock%}

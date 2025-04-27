@@ -1,0 +1,415 @@
+{% extends "base.html" %}
+
+{% block title %}
+หน้าแรกของเว็บไซต์
+{% endblock %}
+
+{% block content %}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+
+    header {
+        background-color: #4CAF50;
+        color: white;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        padding: 20px;
+    }
+
+    .book-card {
+        background-color: white;
+        width: 300px;
+        margin: 15px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+    }
+
+    .book-card img {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+    }
+
+    .book-card .content {
+        padding: 15px;
+    }
+
+    .book-card .title {
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .book-card .description {
+        font-size: 14px;
+        color: #555;
+        margin: 10px 0;
+    }
+
+    .book-card .price {
+        font-size: 16px;
+        color: #4CAF50;
+        font-weight: bold;
+    }
+
+    .book-card .btn {
+        display: inline-block;
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 15px;
+        text-decoration: none;
+        border-radius: 4px;
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    .book-card .btn:hover {
+        background-color: #45a049;
+
+    }
+    .img{
+        width:auto;
+        height: auto;
+        size: cover;
+    }
+    
+    .carousel-item img {
+    height: 500px; 
+    width: 1500px;
+    object-fit: cover; 
+    
+    }
+    .section-title {
+        color: #333;
+        border-bottom: 2px solid #f0f0f0;
+        padding-bottom: 10px;
+        margin-top: 30px;
+        
+    }
+    
+    .highlight {
+        border: 2px solid #ffd700; 
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .slide{
+        align-items: center;
+        margin-left: -55px;
+    }
+    .book-slider {
+        overflow-x:auto;
+        overflow-y:hidden;
+        white-space:nowrap;
+        padding:20px 0;
+    } 
+    .slider-container {
+        display: flex;
+        flex-wrap:nowrap;
+    }
+    .slider-container::-webkit-scrollbar {
+        display: none;
+    }
+    .book-card {
+        scroll-snap-align: start;
+        flex: 0 0 auto;
+        height: var(--book-height);
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        transition: transform 0.3s;
+        position: relative;
+    }
+    .book-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+    
+    .book-cover {
+        height: 65%;
+        overflow: hidden;
+        position: relative;
+        
+    }
+    
+    .book-cover img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.8s;
+    }
+    .book-card:hover .book-cover img {
+        transform: scale(1.05);
+    }
+    
+    .book-info {
+        padding: 15px;
+        height: 35%;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .book-title {
+        font-weight: 700;
+        font-size: 16px;
+        margin-bottom: 5px;
+        color: #333;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+    
+    .book-author {
+        color: #666;
+        font-size: 14px;
+        margin-bottom: 8px;
+    }
+
+    @media (max-width: 768px) {
+        .book-slider {
+            --book-width: 180px;
+            --book-height: 280px;
+            --gap: 15px;
+        }
+    }
+</style>
+
+<div class="container">
+    <div class="container">
+        <h1 class="bestseller-header">หนังสือยอดฮิต</h1>
+    </div>
+    <div class="book-slider">
+        <div class="slider-container">
+            <div class="book-card">
+                <div class="book-cover">
+                    <img src="https://storage.naiin.com/system/application/bookstore/resource/product/202503/642211/1000280808_front_XXL.jpg" alt="Bridge to Terabithia">
+                </div>
+                <div class="book-info">
+                    <div class="book-title">Bridge to Terabithia สะพานสู่เทราบิเทีย</div>
+                    <div class="book-author">โดย Katherine Paterson</div>
+                    
+                </div>
+            </div>
+            <div class="book-card">
+                <div class="book-cover">
+                    <img src="https://storage.naiin.com/system/application/bookstore/resource/product/202503/642200/1000280811_front_XXL.jpg?imgname=Bookshops-Bonedust%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%AB%E0%B8%99%E0%B8%B1%E0%B8%87%E0%B8%AA%E0%B8%B7%E0%B8%AD%E0%B8%81%E0%B8%B1%E0%B8%9A%E0%B8%9C%E0%B8%87%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%94%E0%B8%B9%E0%B8%81g" alt="">
+                    <div class="badge">ใหม่</div>
+                </div>
+                <div class="book-info">
+                    <div class="book-title">Bookshops&Bonedust ร้านหนังสือกับผงกระดูก</div>
+                    <div class="book-author">โดย Travis Baldree</div>
+                </div>
+            </div>
+            <div class="book-card">
+                <div class="book-cover">
+                    <img src="https://storage.naiin.com/system/application/bookstore/resource/product/202410/624915/1000275970_front_XXL.jpg?imgname=LEGENDS-LATTES-%E0%B8%95%E0%B8%B3%E0%B8%99%E0%B8%B2%E0%B8%99%E0%B9%81%E0%B8%A5%E0%B8%B0%E0%B8%A5%E0%B8%B2%E0%B9%80%E0%B8%95%E0%B9%89" alt="">
+                </div>
+                <div class="book-info">
+                    <div class="book-title">LEGENDS&LATTES ตำนานและลาเต้</div>
+                    <div class="book-author">โดย Travis Baldree</div>
+                </div>
+            </div>
+            <div class="book-card">
+                <div class="book-cover">
+                    <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQlMPUYcyU4Qbv-ulofYB0K9GL_eHH0nFOwkXOeGR9flxTA8VRj" alt="Harry Potter">
+                </div>
+                <div class="book-info">
+                    <div class="book-title">Harry Potter และศิลาอาถรรพ์</div>
+                    <div class="book-author">โดย J.K. Rowling</div>
+                    
+                </div>
+            </div>
+            <div class="book-card">
+                <div class="book-cover">
+                    <img src="https://storage.naiin.com/system/application/bookstore/resource/product/202304/577274/1000260516_front_XXL.jpg?imgname=%E0%B8%88%E0%B8%B4%E0%B8%95%E0%B8%A7%E0%B8%B4%E0%B8%97%E0%B8%A2%E0%B8%B2%E0%B8%AA%E0%B8%B2%E0%B8%A2%E0%B8%94%E0%B8%B2%E0%B8%A3%E0%B9%8C%E0%B8%81" alt="">
+                </div>
+                <div class="book-info">
+                    <div class="book-title">จิตวิทยาสายดาร์ก</div>
+                    <div class="book-author">โดย Dr.Hiro</div>
+                </div>
+            </div>
+            <div class="book-card">
+                <div class="book-cover">
+                    <img src="https://storage.naiin.com/system/application/bookstore/resource/product/202503/643036/1000281136_front_XXL.jpg?imgname=%E0%B8%9E%E0%B8%A3%E0%B8%B8%E0%B9%88%E0%B8%87%E0%B8%99%E0%B8%B5%E0%B9%89%E0%B8%AD%E0%B8%B2%E0%B8%88%E0%B8%95%E0%B8%B2%E0%B8%A2%E0%B8%81%E0%B9%87%E0%B9%84%E0%B8%94%E0%B9%89%E0%B8%99%E0%B8%B0" alt="">
+                </div>
+                <div class="book-info">
+                    <div class="book-title">พรุ่งนี้อาจตายก็ได้นะ</div>
+                    <div class="book-author">โดย ฮิซุย โคทาโร่</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <h1 class="bestseller-header">หนังสือแนะนำ</h1>
+    </div>
+    <div class="book-card">
+        <img src="https://storage.naiin.com/system/application/bookstore/resource/product/202002/500581/1000231240_front_XXL.jpg?imgname=%E0%B8%AA%E0%B8%B2%E0%B8%AA%E0%B9%8C%E0%B8%99%E0%B8%A5%E0%B8%B1%E0%B8%9A%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%AA%E0%B8%B2%E0%B8%9A%E0%B8%AA%E0%B8%B9%E0%B8%8D-The-Lost-Symbol-(%E0%B9%83%E0%B8%AB%E0%B8%A1%E0%B9%88)" alt="">
+        <div class="content">
+            <div class="title">สาส์นลับที่สาบสูญ The Lost Symbol</div>
+            <p class="description">โดย Dan Brown</p>
+            <div class="price">ราคาค่าเช่า: 20 บาท</div>
+            <a href="{% url 'checkout' %}" class="btn btn-dark " style="background-color: #333;">เช่า</a>
+            <form method="POST" action="{% url 'add_to_cart' %}" style="display:inline;">
+                {% csrf_token %}
+                <input type="hidden" name="book_id" value="{{ book.id }}">
+                <button type="button" class="btn btn" style="background-color: #333" data-book-id="{{ book.id }}" class="add-to-cart-btn">
+                    ➕ เพิ่มลงตะกร้า
+                </button>
+                
+            </form>
+        </div>
+    </div>
+
+    <div class="book-card">
+        <img src="https://storage.naiin.com/system/application/bookstore/resource/product/202503/642347/1000280920_front_XXL.jpg?imgname=%E0%B8%89%E0%B8%B1%E0%B8%99%E0%B8%86%E0%B9%88%E0%B8%B2%E0%B8%AD%E0%B8%B2%E0%B8%88%E0%B8%B2%E0%B8%A3%E0%B8%A2%E0%B9%8C" alt="">
+        <div class="content">
+            <div class="title">ฉันฆ่าอาจารย์</div><br>
+            <p class="description">โดย ซากุระอิ มินะ</p>
+            <div class="price">ราคาค่าเช่า: 20 บาท</div>
+            <a href="{% url 'checkout' %}" class="btn btn-dark" style="background-color: #333;">เช่า</a>
+            <form method="POST" action="{% url 'add_to_cart' %}" style="display:inline;">
+                {% csrf_token %}
+                <input type="hidden" name="book_id" value="{{ book.id }}">
+                <button type="button" class="btn btn" style="background-color: #333" data-book-id="{{ book.id }}" class="add-to-cart-btn">
+                    ➕ เพิ่มลงตะกร้า
+                </button>
+                
+            </form>
+        </div>
+    </div>
+
+    <div class="book-card">
+        <img src="https://storage.naiin.com/system/application/bookstore/resource/product/202503/641407/1000280548_front_XXL.jpg?imgname=%E0%B8%86%E0%B8%B2%E0%B8%95%E0%B8%81%E0%B8%A3%E0%B8%A3%E0%B8%A1%E0%B8%84%E0%B8%A3%E0%B8%B1%E0%B9%89%E0%B8%87%E0%B8%AA%E0%B8%B8%E0%B8%94%E0%B8%97%E0%B9%89%E0%B8%B2%E0%B8%A2%E0%B9%83%E0%B8%99%E0%B8%A7%E0%B8%B1%E0%B8%99%E0%B8%AA%E0%B8%B4%E0%B9%89%E0%B8%99%E0%B9%82%E0%B8%A5%E0%B8%81" alt="">
+        <div class="content">
+            <div class="title">ฆาตกรรมครั้งสุดท้ายในวันสิ้นโลก</div><br>
+            <p class="description">โดย อากาเนะ อารากิ</p>
+            <div class="price">ราคาค่าเช่า: 20 บาท</div>
+            <a href="{% url 'checkout' %}" class="btn btn-dark" style="background-color: #333;">เช่า</a>
+            <form method="POST" action="{% url 'add_to_cart' %}" style="display:inline;">
+                {% csrf_token %}
+                <input type="hidden" name="book_id" value="{{ book.id }}">
+                <button type="button" class="btn btn" style="background-color: #333" data-book-id="{{ book.id }}" class="add-to-cart-btn">
+                    ➕ เพิ่มลงตะกร้า
+                </button>
+                
+            </form>
+        </div>
+    </div>
+    <div class="book-card">
+        <img src="https://storage.naiin.com/system/application/bookstore/resource/product/202412/632464/1000278144_front_XXL.jpg?imgname=%E0%B8%86%E0%B8%B2%E0%B8%95%E0%B8%81%E0%B8%A3%E0%B8%A3%E0%B8%A1%E0%B8%84%E0%B8%A4%E0%B8%AB%E0%B8%B2%E0%B8%AA%E0%B8%99%E0%B9%8C%E0%B8%99%E0%B9%89%E0%B8%B3%E0%B9%80%E0%B8%87%E0%B8%B4%E0%B8%99%E0%B8%AD%E0%B8%B2%E0%B9%82%E0%B8%AD%E0%B8%A1%E0%B8%B4%E0%B8%81%E0%B8%B1%E0%B8%87" alt="">
+        <div class="content">
+            <div class="title">ฆาตกรรมคฤหาสน์น้ำเงินอาโอมิกัง</div>
+            <p class="description">โดย อัตสึกาวะ ทาสึมิ</p>
+            <div class="price">ราคาค่าเช่า: 20 บาท</div>
+            <a href="{% url 'checkout' %}" class="btn btn-dark" style="background-color: #333;">เช่า</a>
+            <form method="POST" action="{% url 'add_to_cart' %}" style="display:inline;">
+                {% csrf_token %}
+                <input type="hidden" name="book_id" value="{{ book.id }}">
+                <button type="button" class="btn btn" style="background-color: #333" data-book-id="{{ book.id }}" class="add-to-cart-btn">
+                    ➕ เพิ่มลงตะกร้า
+                </button>
+                
+            </form>
+        </div>
+    </div>
+    <div class="book-card">
+        <img src="https://storage.naiin.com/system/application/bookstore/resource/product/202502/639581/1000280118_front_XXL.jpg?imgname=%E0%B9%80%E0%B8%A3%E0%B8%B7%E0%B9%88%E0%B8%AD%E0%B8%87%E0%B9%80%E0%B8%A5%E0%B9%88%E0%B8%B2%E0%B8%9E%E0%B8%B4%E0%B8%AA%E0%B8%94%E0%B8%B2%E0%B8%A3%E0%B8%82%E0%B8%AD%E0%B8%87%E0%B8%9C%E0%B8%B9%E0%B9%89%E0%B8%A3%E0%B8%B1%E0%B8%9A%E0%B8%AA%E0%B8%B2%E0%B8%A3%E0%B9%81%E0%B8%AB%E0%B9%88%E0%B8%87%E0%B9%81%E0%B8%94%E0%B8%99%E0%B9%80%E0%B8%AB%E0%B8%99%E0%B8%B7%E0%B8%AD" alt="">
+        <div class="content">
+            <div class="title">เรื่องเล่าพิสดารของผู้รับสารแห่งแดนเหนือ</div>
+            <p class="description">โดย ฮาจิเมะ ชิมิซุ</p>
+            <div class="price">ราคาค่าเช่า: 20 บาท</div>
+            <a href="{% url 'checkout' %}" class="btn btn-dark" style="background-color: #333;">เช่า</a>
+            <form method="POST" action="{% url 'add_to_cart' %}" style="display:inline;">
+                {% csrf_token %}
+                <input type="hidden" name="book_id" value="{{ book.id }}">
+                <button type="button" class="btn btn" style="background-color: #333" data-book-id="{{ book.id }}" class="add-to-cart-btn">
+                    ➕ เพิ่มลงตะกร้า
+                </button>
+                
+            </form>
+        </div>
+    </div>
+    <div class="book-card">
+        <img src="https://storage.naiin.com/system/application/bookstore/resource/product/202502/639752/1000280151_front_XXL.jpg?imgname=%E0%B8%9B%E0%B9%88%E0%B8%B2%E0%B8%81%E0%B8%A5%E0%B8%B7%E0%B8%99%E0%B8%A7%E0%B8%B4%E0%B8%8D%E0%B8%8D%E0%B8%B2%E0%B8%93-(Uprooted)" alt="">
+        <div class="content">
+            <div class="title">ป่ากลืนวิญญาณ (Uprooted)</div><br>
+            <p class="description">โดย Naomi Novik (เนโอมี โนวิก)</p>
+            <div class="price">ราคาค่าเช่า: 20 บาท</div>
+            <a href="{% url 'checkout' %}" class="btn btn-dark" style="background-color: #333;">เช่า</a>
+            <form method="POST" action="{% url 'add_to_cart' %}" style="display:inline;">
+                {% csrf_token %}
+                <input type="hidden" name="book_id" value="{{ book.id }}">
+                <button type="button" class="btn btn" style="background-color: #333" data-book-id="{{ book.id }}" class="add-to-cart-btn">
+                    ➕ เพิ่มลงตะกร้า
+                </button>                
+            </form>
+        </div>
+    </div>
+</div>
+
+<form action="#" method="post" class="p-5" >
+    {%csrf_token%}
+    <h1 style="border-radius:6px;
+    background-color: lightblue;" class ="p-1 mb-4  text-white text-center ">สถานะหนังสือ</h1>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="=col">ลำดับ</th>
+            <th scope="col">ชื่อหนังสือ</th>
+            <th scope="col">หมวดหมู่</th>
+            <th scope="col">ราคา</th>
+            <th scope="col">สถานะ</th>
+            <th scope="col">ลบ</th>
+            <th scope="col">แก้ไข</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        {% for book in all_book%}
+        <tr>
+            <th scope="row">{{book.id}}</th>
+            <td>{{book.name}}</td>
+            <td>{{book.category}}</td>
+            <td>{{book.price}}</td>
+            <td>{{book.status}}</td>
+            <td>
+                <form action="{% url 'delete' book.id %}" method="POST">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger " onclick="return confirm('คุณแน่ใจว่าต้องการลบข้อมูลนี้?')">
+                        ลบ
+                    </button>
+                </form>
+            </td>
+            <td>
+                <a href="{% url 'edit' book.id %}" class="btn btn-success">แก้ไข</a>
+        </div>
+        </tr>
+        {% empty%}
+        <tr> 
+            <td colspan="5" class="text-center">ยังไม่มีหนังสือ</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</form>
+
+<script>
+    function myFunction(){
+        alert("คุณต้องการลบใช่หรือไม่?");
+    }
+    </script>
+
+        
+{% endblock %}
+
+
